@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IMRAN ISLAMIC – A Beautiful Journey of Faith & Knowledge</title>
+  <meta name="description" content="IMRAN ISLAMIC – Quran, Hadith, prayer times, dua and Islamic knowledge in Bengali, Arabic and English.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cinzel:wght@500;700&family=Noto+Sans+Bengali:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a href="#home" class="logo">
+        <span class="logo-mark">ع</span>
+        <span>IMRAN <b>ISLAMIC</b></span>
+      </a>
+
+      <nav id="mainNav" class="main-nav">
+        <a href="#home" data-i18n="nav_home">Home</a>
+        <a href="#quran" data-i18n="nav_quran">Quran</a>
+        <a href="#prayer" data-i18n="nav_prayer">Prayer Times</a>
+        <a href="#hadith" data-i18n="nav_hadith">Hadith</a>
+        <a href="#articles" data-i18n="nav_articles">Articles</a>
+        <a href="#contact" data-i18n="nav_contact">Contact</a>
+      </nav>
+
+      <div class="nav-tools">
+        <select id="langSelect" aria-label="Language">
+          <option value="en">EN</option>
+          <option value="bn">বাং</option>
+          <option value="ar">عربي</option>
+        </select>
+        <button id="themeBtn" class="icon-btn" aria-label="Toggle dark and light mode">🌙</button>
+        <button id="menuBtn" class="icon-btn menu-btn" aria-label="Open menu" aria-expanded="false">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-pattern"></div>
+    <div class="container hero-inner">
+      <p class="bismillah ar">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</p>
+      <h1 class="bn-title">আলোর পথে, জ্ঞানের সাথে</h1>
+      <p class="hero-sub" data-i18n="hero_sub">A Beautiful Journey of Faith &amp; Knowledge</p>
+      <div class="hero-btns">
+        <a href="#quran" class="btn btn-gold" data-i18n="btn_quran">Quran</a>
+        <a href="#articles" class="btn btn-ghost" data-i18n="btn_explore">Explore Islam</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRAYER TIMES -->
+  <section class="section" id="prayer">
+    <div class="container">
+      <h2 class="sec-title" data-i18n="prayer_title">Prayer Times</h2>
+      <div class="card prayer-card">
+        <select id="citySelect" aria-label="Choose city">
+          <option value="Dhaka|Bangladesh">Dhaka, Bangladesh</option>
+          <option value="Mecca|Saudi Arabia">Makkah, Saudi Arabia</option>
+          <option value="Karachi|Pakistan">Karachi, Pakistan</option>
+          <option value="Kuala Lumpur|Malaysia">Kuala Lumpur, Malaysia</option>
+          <option value="London|United Kingdom">London, UK</option>
+          <option value="New York|United States">New York, USA</option>
+        </select>
+        <p id="hijriDate" class="muted"></p>
+        <div id="timesGrid" class="times-grid"></div>
+        <p id="prayerStatus" class="muted small"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- DAILY AYAH & HADITH -->
+  <section class="section">
+    <div class="container">
+      <h2 class="sec-title" data-i18n="daily_title">Daily Ayah &amp; Hadith</h2>
+      <div class="grid cols-2">
+        <div class="card" id="ayahBox"></div>
+        <div class="card" id="hadithBox"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="section">
+    <div class="container">
+      <h2 class="sec-title" data-i18n="services_title">Our Services</h2>
+      <div class="grid cols-3">
+        <div class="card service"><h3>Holy Quran</h3><p class="muted">Arabic text with translation and audio.</p></div>
+        <div class="card service"><h3>Hadith Collection</h3><p class="muted">Search and browse verified hadith books.</p></div>
+        <div class="card service"><h3>Prayer Times</h3><p class="muted">Accurate times for your city.</p></div>
+        <div class="card service"><h3>Qibla Direction</h3><p class="muted">Find the Qibla from anywhere.</p></div>
+        <div class="card service"><h3>Daily Dua</h3><p class="muted">Duas for every moment of the day.</p></div>
+        <div class="card service"><h3>Digital Tasbih</h3><p class="muted">Count your zikr with ease.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QURAN & HADITH -->
+  <section class="section" id="quran">
+    <div class="container">
+      <h2 class="sec-title" data-i18n="quran_title">The Holy Quran</h2>
+      <div class="grid cols-2">
+        <div class="card feature">
+          <div>
+            <h3>القرآن الكريم</h3>
+            <p class="muted">Read the Quran in Arabic with Bengali and English translation. Full Surah navigation is coming in the next stage.</p>
+          </div>
+        </div>
+        <div class="card feature" id="hadith">
+          <div>
+            <h3 data-i18n="hadith_title">Hadith Collection</h3>
+            <p class="muted">Search and filter authentic hadith by category. Coming in a later stage.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ARTICLES -->
+  <section class="section" id="articles">
+    <div class="container">
+      <h2 class="sec-title" data-i18n="articles_title">Islamic Articles</h2>
+      <div class="card center muted">
+        Articles will appear here in the next build stage.
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer" id="contact">
+    <div class="container">
+      <p class="logo-foot">IMRAN <b>ISLAMIC</b></p>
+      <p class="muted" data-i18n="footer_tag">Light of guidance, knowledge of faith</p>
+      <div class="socials">
+        <a href="#" aria-label="Facebook">Facebook</a>
+        <a href="#" aria-label="YouTube">YouTube</a>
+        <a href="#" aria-label="Instagram">Instagram</a>
+      </div>
+      <p class="muted small">Contact: replace this with your email address</p>
+      <p class="muted small">© <span id="year"></span> IMRAN ISLAMIC. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
