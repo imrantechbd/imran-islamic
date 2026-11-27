@@ -6,6 +6,7 @@ const LANGS = {
     hero_sub: "A Beautiful Journey of Faith & Knowledge",
     btn_quran: "Quran", btn_explore: "Explore Islam",
     prayer_title: "Prayer Times", daily_title: "Daily Ayah & Hadith",
+    daily_ayah: "Daily Ayah", daily_hadith: "Daily Hadith",
     services_title: "Our Services", quran_title: "The Holy Quran",
     hadith_title: "Hadith Collection", articles_title: "Islamic Articles",
     footer_tag: "Light of guidance, knowledge of faith"
@@ -16,6 +17,7 @@ const LANGS = {
     hero_sub: "ঈমান ও জ্ঞানের সুন্দর যাত্রা",
     btn_quran: "কুরআন", btn_explore: "ইসলাম জানুন",
     prayer_title: "নামাজের সময়সূচি", daily_title: "দৈনিক আয়াত ও হাদিস",
+    daily_ayah: "দৈনিক আয়াত", daily_hadith: "দৈনিক হাদিস",
     services_title: "আমাদের সেবাসমূহ", quran_title: "পবিত্র কুরআন",
     hadith_title: "হাদিস সংগ্রহ", articles_title: "ইসলামী প্রবন্ধ",
     footer_tag: "হিদায়াতের আলো, ঈমানের জ্ঞান"
@@ -26,6 +28,7 @@ const LANGS = {
     hero_sub: "رحلة جميلة في الإيمان والعلم",
     btn_quran: "القرآن", btn_explore: "استكشف الإسلام",
     prayer_title: "مواقيت الصلاة", daily_title: "آية وحديث اليوم",
+    daily_ayah: "آية اليوم", daily_hadith: "حديث اليوم",
     services_title: "خدماتنا", quran_title: "القرآن الكريم",
     hadith_title: "الحديث الشريف", articles_title: "المقالات الإسلامية",
     footer_tag: "نور الهداية ومعرفة الدين"
@@ -59,6 +62,7 @@ function setLang(lang) {
   });
   $("#langSelect").value = lang;
   localStorage.setItem("imranLang", lang);
+  showDailyContent(lang);
 }
 
 // ===== Theme =====
@@ -108,7 +112,8 @@ async function loadPrayerTimes(value) {
 }
 
 // ===== Daily ayah and hadith (changes every day) =====
-function showDailyContent() {
+function showDailyContent(lang) {
+  const dict = LANGS[lang] || LANGS.en;
   const now = new Date();
   const dayOfYear = Math.floor((now - new Date(now.getFullYear(), 0, 0)) / 86400000);
 
@@ -116,13 +121,13 @@ function showDailyContent() {
   const hadith = HADITHS[dayOfYear % HADITHS.length];
 
   $("#ayahBox").innerHTML = `
-    <h3>${LANGS.en.daily_title.split(" & ")[0]}</h3>
+    <h3>${dict.daily_ayah}</h3>
     <p class="ayah-ar">${ayah.ar}</p>
     <p>${ayah.en}</p>
     <p class="ref">${ayah.ref}</p>`;
 
   $("#hadithBox").innerHTML = `
-    <h3>Hadith</h3>
+    <h3>${dict.daily_hadith}</h3>
     <p class="ayah-ar">${hadith.ar}</p>
     <p>${hadith.en}</p>
     <p class="ref">${hadith.ref}</p>`;
@@ -142,5 +147,4 @@ $("#citySelect").value = localStorage.getItem("imranCity") || "Dhaka|Bangladesh"
 $("#citySelect").addEventListener("change", (e) => loadPrayerTimes(e.target.value));
 loadPrayerTimes($("#citySelect").value);
 
-showDailyContent();
 $("#year").textContent = new Date().getFullYear();
